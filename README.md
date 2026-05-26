@@ -1,2 +1,1 @@
-# nikhilyada-portfolio
 # yadanikhilraj-portfolio

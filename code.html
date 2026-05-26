@@ -150,6 +150,92 @@
         ::-webkit-scrollbar-track { background: #0c0e14; }
         ::-webkit-scrollbar-thumb { background: #33343c; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #424754; }
+
+        /* Theme transition */
+        body, header, .glass-card, .animated-border, input, textarea {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        /* ── Light theme ── */
+        html:not(.dark) body {
+            background-color: #f0f4ff;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+            color: #1a1b26;
+        }
+
+        html:not(.dark) header {
+            background: rgba(240, 244, 255, 0.88);
+            border-bottom-color: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 0 20px rgba(0, 90, 194, 0.08);
+        }
+
+        html:not(.dark) .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            border-color: rgba(0, 0, 0, 0.1);
+            border-bottom-color: rgba(0, 0, 0, 0.05);
+            border-right-color: rgba(0, 0, 0, 0.05);
+        }
+
+        html:not(.dark) .animated-border {
+            background: rgba(255, 255, 255, 0.65);
+        }
+
+        html:not(.dark) .glow-primary {
+            box-shadow: 0 0 32px rgba(0, 90, 194, 0.15);
+        }
+
+        /* Text */
+        html:not(.dark) .text-on-surface          { color: #1a1b26; }
+        html:not(.dark) .text-on-surface-variant   { color: #44475e; }
+        html:not(.dark) .text-primary              { color: #005ac2; }
+        html:not(.dark) .text-primary-fixed-dim    { color: #004aad; }
+        html:not(.dark) .text-background           { color: #f0f4ff; }
+
+        /* Backgrounds */
+        html:not(.dark) .bg-surface-dim            { background-color: #eef1ff; }
+        html:not(.dark) .bg-background             { background-color: #f0f4ff; }
+        html:not(.dark) .bg-surface-variant        { background-color: #d8dcf0; }
+        html:not(.dark) .bg-white\/5               { background-color: rgba(0, 0, 0, 0.04); }
+        html:not(.dark) .bg-black\/50              { background-color: rgba(240, 244, 255, 0.75); }
+        html:not(.dark) .bg-primary\/10            { background-color: rgba(0, 90, 194, 0.1); }
+        html:not(.dark) .bg-primary\/5             { background-color: rgba(0, 90, 194, 0.05); }
+        html:not(.dark) .bg-surface-container-lowest\/50 { background-color: rgba(224, 229, 248, 0.5); }
+        html:not(.dark) .bg-surface-container-low  { background-color: #e4e9f8; }
+        html:not(.dark) .bg-surface-container\/50  { background-color: rgba(216, 222, 248, 0.5); }
+
+        /* Borders */
+        html:not(.dark) .border-white\/10          { border-color: rgba(0, 0, 0, 0.1); }
+        html:not(.dark) .border-white\/5           { border-color: rgba(0, 0, 0, 0.05); }
+        html:not(.dark) .border-primary\/20        { border-color: rgba(0, 90, 194, 0.2); }
+        html:not(.dark) .border-primary\/30        { border-color: rgba(0, 90, 194, 0.3); }
+
+        /* Gradient from/to background */
+        html:not(.dark) .from-background { --tw-gradient-from: #f0f4ff var(--tw-gradient-from-position); }
+        html:not(.dark) .to-background   { --tw-gradient-to:   #f0f4ff var(--tw-gradient-to-position); }
+
+        /* Scrollbar */
+        html:not(.dark) ::-webkit-scrollbar-track       { background: #e4e9f8; }
+        html:not(.dark) ::-webkit-scrollbar-thumb       { background: #b8bdd8; border-radius: 4px; }
+        html:not(.dark) ::-webkit-scrollbar-thumb:hover { background: #8f96c0; }
+
+        /* Theme toggle button */
+        #theme-toggle {
+            padding: 0.375rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: inherit;
+            cursor: pointer;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        #theme-toggle:hover { background: rgba(255, 255, 255, 0.08); }
+        html:not(.dark) #theme-toggle { border-color: rgba(0, 0, 0, 0.1); }
+        html:not(.dark) #theme-toggle:hover { background: rgba(0, 0, 0, 0.05); }
     </style>
 </head>
 <body class="antialiased selection:bg-primary-container/30">
@@ -167,6 +253,9 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#projects">Projects</a>
 <a class="font-body-md text-body-md px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-semibold hover:scale-95 active:scale-90 transition-transform shadow-[0_0_15px_rgba(173,198,255,0.4)]" href="#contact">Hire Me</a>
 </div>
+<button id="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+<span class="material-symbols-outlined text-xl" id="theme-icon">light_mode</span>
+</button>
 <button class="md:hidden text-on-surface">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -580,6 +669,37 @@
             section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
             observer.observe(section);
         });
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.textContent = 'dark_mode';
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.textContent = 'light_mode';
+            }
+        }
+
+        // Apply saved or system theme on load
+        (function () {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const useDark = saved ? saved === 'dark' : prefersDark;
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (useDark) {
+                html.classList.add('dark');
+                icon.textContent = 'light_mode';
+            } else {
+                html.classList.remove('dark');
+                icon.textContent = 'dark_mode';
+            }
+        })();
 
         // Sticky Navbar state
         window.addEventListener('scroll', () => {

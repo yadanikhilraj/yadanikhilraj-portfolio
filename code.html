@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nikhil Raj Yada | Frontend Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#12131a",
+                        "background": "#12131a",
+                        "surface-container-lowest": "#0c0e14",
+                        "on-surface": "#e2e1eb",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#adc6ff",
+                        "primary-container": "#4d8eff",
+                        "tertiary-container": "#929091",
+                        "outline-variant": "#424754",
+                        "surface-container": "#1e1f26",
+                        "on-secondary": "#3c0091",
+                        "surface-bright": "#383940",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary": "#313031",
+                        "tertiary-fixed-dim": "#c8c6c7",
+                        "surface-variant": "#33343c",
+                        "surface-container-high": "#282a31",
+                        "surface": "#12131a",
+                        "on-surface-variant": "#c2c6d6",
+                        "inverse-surface": "#e2e1eb",
+                        "inverse-on-surface": "#2f3037",
+                        "on-tertiary-container": "#2a292b",
+                        "on-primary-container": "#00285d",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed": "#d8e2ff",
+                        "tertiary-fixed": "#e5e2e3",
+                        "on-background": "#e2e1eb",
+                        "surface-tint": "#adc6ff",
+                        "surface-container-highest": "#33343c",
+                        "inverse-primary": "#005ac2",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "primary": "#adc6ff",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#c8c6c7",
+                        "outline": "#8c909f",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-primary-fixed": "#001a42",
+                        "on-tertiary-fixed-variant": "#474647",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#1a1b22",
+                        "on-primary": "#002e6a",
+                        "on-error": "#690005",
+                        "secondary-container": "#571bc1",
+                        "on-tertiary-fixed": "#1c1b1c",
+                        "on-secondary-container": "#c4abff",
+                        "secondary": "#d0bcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "code": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "code": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #12131a;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: #e2e1eb;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+            border-right-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .glow-primary {
+            box-shadow: 0 0 32px rgba(173, 198, 255, 0.1);
+        }
+
+        .animated-border {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 0.5rem;
+        }
+
+        .animated-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: conic-gradient(from 0deg, transparent, #3b82f6, #8b5cf6, transparent);
+            border-radius: 0.6rem;
+            z-index: -1;
+            animation: rotate-border 4s linear infinite;
+        }
+
+        @keyframes rotate-border {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0c0e14; }
+        ::-webkit-scrollbar-thumb { background: #33343c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #424754; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container/30">
+<header class="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-md border-b border-white/10 shadow-[0_0_20px_rgba(173,198,255,0.1)]">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-20">
+<div class="flex items-center gap-3">
+<img alt="Nikhil Raj Yada Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uic8s0Vw5OlNXhb7X3otBfdurggLmdvXagacXZ7lq9u-Fi3Jl917HLu-dKAoKTLmbOiYkalP1qDGNIong8FSK7kwu5Ny-NTsSyu1hcw3UxVJVoUMRxuBZn1SvXZFQxQ5kWphV8P77ECP0fvSTsFLzDQ23_EXMdOhuyg45oVL9fujhsPy6nIGm1NCM8m3JMAjOT__rKzukmMwC0Pj0b5AT45-SwPstKc2obL469zYKNvIP_tt6uxxbG_miI"/>
+<span class="font-display-lg text-headline-md font-bold tracking-tighter text-on-surface">NIKHIL RAJ YADA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#home">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#skills">Skills</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#experience">Experience</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#projects">Projects</a>
+<a class="font-body-md text-body-md px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-semibold hover:scale-95 active:scale-90 transition-transform shadow-[0_0_15px_rgba(173,198,255,0.4)]" href="#contact">Hire Me</a>
+</div>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<img alt="Abstract High Tech Background" class="w-full h-full object-cover opacity-20 filter grayscale contrast-125" src="https://lh3.googleusercontent.com/aida/ADBb0ujS3JY5JqtK6oWRh3E2wpezQmLpx0bKruVAhvZ9qwqLxvuAuBcD7ZxSTwHgjohI2IAfbDCIlCuJnv4KsdQRS0JU18nl2geZ9PAiRZMlCXqWLrbsT0vBSZD3FR61-PIa4ZSzOYnKun0gYRZMARyD496feb0esgigWxfJVzGC4zc-xJChQCIZwWjBUzetfbUrwBAhDfGuTscazPJ5GIHkOwrWB_sQaYyThscCZNNKoxNzg76nhv3FWsq1g-I"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Available for new opportunities</span>
+</div>
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-2">
+                            Nikhil Raj Yada
+                        </h1>
+<p class="font-headline-lg text-headline-lg text-primary-fixed-dim">
+                            Frontend Developer
+                        </p>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                        Building high-performance, enterprise-grade user interfaces. Specialized in React.js, Next.js, and TypeScript with a focus on UI engineering and technical depth.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-bold text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all flex items-center gap-2" href="#projects">
+                            View My Work
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="px-8 py-4 glass-card rounded-xl font-bold text-on-surface hover:bg-white/10 transition-all border border-white/10" href="#contact">
+                            Contact Me
+                        </a>
+</div>
+</div>
+<div class="hidden md:block">
+<div class="animated-border p-1">
+<div class="glass-card rounded-xl overflow-hidden aspect-video relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A macro shot of clean TypeScript code displayed on a high-resolution professional monitor in a dark, atmospheric setting. The lighting is dominated by subtle blue and purple neon hues that reflect off the screen's surface. The depth of field is shallow, creating a bokeh effect in the background where a mechanical keyboard with RGB lighting is partially visible. The overall mood is sophisticated, technical, and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt7JTOLF2YjzPkzSyk9yKxDc8vRiz4-forgiTkAefApXfvxEt7sQ8O_uZohU2op_PuJ4hjo3Z-hANvx-P8j3vp5vrq3ZXKMx9xj_Uu_Sh8SXAi3L6WA0qdU7QJ8E10krn9G4NFge0FxvSiZIjLPy6SopwjfBnRKBbnAYdVno6xhdiHwuZdHmwKcCknlkM_efySjkmeCW8TwOW4KUsOPc6beFJzQ9qRxUOZzlq2-iGlMIuLg4xayV4Yh5lNgM9aLS_wBW84kEDM0go"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex gap-2">
+<span class="px-3 py-1 rounded bg-black/50 backdrop-blur-md text-xs font-code border border-white/10">TypeScript</span>
+<span class="px-3 py-1 rounded bg-black/50 backdrop-blur-md text-xs font-code border border-white/10">React</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap relative" id="about">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5 relative">
+<div class="aspect-square glass-card rounded-full p-4 overflow-hidden glow-primary">
+<img class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="A creative professional portrait of a modern developer looking thoughtfully into the distance. The setting is a sleek, dark-themed office environment with subtle architectural lighting. The color palette is composed of deep charcoals and muted navy blues, highlighted by a sharp primary blue key light. The image has a clean, premium, and sophisticated aesthetic consistent with enterprise-level design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6U73KJkMEecPzBqLhHuWK3Bh3E8wmEi9fEld0g4SLG7gX63zpBFKfKzg3frURSwlTAGuAKg9UbfmgiLMfqHO61GbrctEM9cZeSTsY5wbGKGUtfDIBvtMEs2T2wpkPX3ngt_tqZdjxxSMaNRfVjLAVzrX6Mr7Tj1o1hMZh-JJhzEjg_Rt-2ESKhhgR3DhFXfdUqUBTbIWDjgF0JyZuNY9JP4c2o8yxqX3D7oHGq6XeEP1buf62Y7nlMOabDHq5md5473A86AcIoCw"/>
+</div>
+</div>
+<div class="md:col-span-7 space-y-6">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg">Technical Mastery</h2>
+<div class="space-y-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                I am a dedicated Frontend Developer with 2 years of hands-on experience in architecting robust, scalable web applications. My approach combines the precision of UI engineering with the efficiency of modern enterprise tools.
+                            </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                Specializing in the React ecosystem, I focus on building accessible, performant, and maintainable interfaces. My background in QA testing ensures that every pixel I place and every line of code I write is grounded in technical reliability and user-centric design.
+                            </p>
+</div>
+<div class="grid grid-cols-2 gap-8 pt-8">
+<div class="border-l-2 border-primary pl-4">
+<div class="font-display-lg text-headline-lg text-primary">2+</div>
+<div class="font-label-md text-label-md uppercase text-on-surface-variant tracking-widest">Years Experience</div>
+</div>
+<div class="border-l-2 border-primary pl-4">
+<div class="font-display-lg text-headline-lg text-primary">15+</div>
+<div class="font-label-md text-label-md uppercase text-on-surface-variant tracking-widest">Projects Shipped</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Bento Grid -->
+<section class="py-section-gap bg-surface-container-lowest/50" id="skills">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg mb-4">Core Ecosystem</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">A comprehensive overview of my technical stack and professional competencies.</p>
+</div>
+<div class="grid md:grid-cols-4 gap-6">
+<!-- Frontend -->
+<div class="md:col-span-2 glass-card p-8 rounded-xl space-y-6 group hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">developer_mode_tv</span>
+<h3 class="font-headline-md text-headline-md">Frontend Development</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">React.js</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">Next.js</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">TypeScript</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">JavaScript</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">Redux</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">React Query</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">Tailwind CSS</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">HTML5</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">Webpack</span>
+<span class="px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/20 text-xs font-medium">PWA</span>
+</div>
+</div>
+<!-- Testing -->
+<div class="glass-card p-8 rounded-xl space-y-6 group hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">rule</span>
+<h3 class="font-headline-md text-headline-md">Testing</h3>
+</div>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Unit Testing</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> API Testing</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Manual Testing</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Test Case Design</li>
+</ul>
+</div>
+<!-- Tools -->
+<div class="glass-card p-8 rounded-xl space-y-6 group hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">handyman</span>
+<h3 class="font-headline-md text-headline-md">Tools</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-white/5 border border-white/10 text-xs">Git</span>
+<span class="px-2 py-1 rounded bg-white/5 border border-white/10 text-xs">VS Code</span>
+<span class="px-2 py-1 rounded bg-white/5 border border-white/10 text-xs">Azure DevOps</span>
+<span class="px-2 py-1 rounded bg-white/5 border border-white/10 text-xs">Postman</span>
+<span class="px-2 py-1 rounded bg-white/5 border border-white/10 text-xs">Stripe</span>
+</div>
+</div>
+<!-- Other -->
+<div class="md:col-span-4 glass-card p-8 rounded-xl space-y-6 group hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">dashboard</span>
+<h3 class="font-headline-md text-headline-md">Professional Methodologies</h3>
+</div>
+<div class="grid md:grid-cols-4 gap-4">
+<div class="p-4 rounded-lg bg-surface-container/50 border border-white/5">
+<div class="font-label-md text-primary mb-1">Architecture</div>
+<div class="text-on-surface-variant text-sm">RESTful APIs &amp; CI/CD</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/50 border border-white/5">
+<div class="font-label-md text-primary mb-1">Standards</div>
+<div class="text-on-surface-variant text-sm">WCAG 2.2 Accessibility</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/50 border border-white/5">
+<div class="font-label-md text-primary mb-1">Development</div>
+<div class="text-on-surface-variant text-sm">Agile &amp; TDD Patterns</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/50 border border-white/5">
+<div class="font-label-md text-primary mb-1">Quality</div>
+<div class="text-on-surface-variant text-sm">Cross-Browser Testing</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="py-section-gap relative" id="experience">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid md:grid-cols-3 gap-12">
+<div class="sticky top-32 h-fit">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg mb-4">Professional Path</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">My professional journey in software engineering and quality assurance.</p>
+<div class="mt-8 space-y-4">
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<p class="font-bold">Tek Yantra Inc</p>
+<p class="text-xs text-on-surface-variant">Core Engineer</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 space-y-12">
+<!-- Experience 1 -->
+<div class="relative pl-8 border-l-2 border-primary/20 pb-12">
+<div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-primary shadow-[0_0_10px_rgba(173,198,255,1)]"></div>
+<div class="space-y-4">
+<div class="flex flex-wrap justify-between items-start gap-2">
+<div>
+<h3 class="font-headline-md text-headline-md">Frontend Developer</h3>
+<p class="text-primary font-medium">Tek Yantra Inc</p>
+</div>
+<span class="px-4 py-1 rounded-full bg-white/5 text-xs font-code">Apr 2024 - Present</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-3 leading-relaxed">
+<p>Developed responsive, high-performance user interfaces using React.js and Next.js.</p>
+<ul class="list-disc list-inside space-y-2 opacity-80">
+<li>Architected reusable UI component libraries with SCSS and Tailwind.</li>
+<li>Integrated payment gateways including Stripe and Cashfree.</li>
+<li>Optimized UX flows resulting in significant engagement improvements.</li>
+<li>Ensured 100% WCAG accessibility compliance across enterprise portals.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Experience 2 -->
+<div class="relative pl-8 border-l-2 border-primary/20 pb-12">
+<div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-surface-variant border-2 border-primary/20"></div>
+<div class="space-y-4">
+<div class="flex flex-wrap justify-between items-start gap-2">
+<div>
+<h3 class="font-headline-md text-headline-md">Quality Assurance Tester</h3>
+<p class="text-primary font-medium">Tek Yantra Inc</p>
+</div>
+<span class="px-4 py-1 rounded-full bg-white/5 text-xs font-code">Nov 2024 - Nov 2025</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                    Managed full-lifecycle testing including Unit, Manual, and API validation. Spearheaded bug tracking and test case design for enterprise cybersecurity tools.
+                                </p>
+</div>
+</div>
+<!-- Experience 3 -->
+<div class="relative pl-8 border-l-2 border-primary/20">
+<div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-surface-variant border-2 border-primary/20"></div>
+<div class="space-y-4">
+<div class="flex flex-wrap justify-between items-start gap-2">
+<div>
+<h3 class="font-headline-md text-headline-md">Intern</h3>
+<p class="text-primary font-medium">Tek Yantra Inc</p>
+</div>
+<span class="px-4 py-1 rounded-full bg-white/5 text-xs font-code">Oct 2023 - Mar 2024</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    Gained hands-on experience in modern web fundamentals (HTML, CSS, JavaScript) and agile development workflows.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-gap bg-surface-container-low" id="projects">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg">Featured Work</h2>
+<p class="text-on-surface-variant mt-4">Selection of high-impact engineering projects.</p>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="animated-border p-1 group">
+<div class="glass-card rounded-xl overflow-hidden grid md:grid-cols-2">
+<div class="p-8 space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">shield_person</span>
+<h3 class="font-headline-md text-headline-md text-primary">Rocon Platform</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                    An enterprise cybersecurity portal focused on automated threat detection and user security management. Developed the core UI architecture, onboarding sequences, and complex billing integration flows.
+                                </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs">React</span>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs">Next.js</span>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs">Azure DevOps</span>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs">Testing</span>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-xs">Accessibility</span>
+</div>
+<div class="pt-4">
+<button class="flex items-center gap-2 text-primary hover:gap-4 transition-all">
+                                        Case Study Coming Soon <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dim relative overflow-hidden h-full min-h-[300px]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60" data-alt="A sophisticated data visualization dashboard showing real-time network traffic and security alerts. The interface is dark-themed with glowing data points in electric blue and vibrant purple. The layout is clean and minimalist, showcasing high-density information through elegant charts and modern typography. The atmosphere conveys enterprise-grade cybersecurity and technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnbogsFUhoEtzfxpSfdcOgg5xdkztRNTtlHvMg5kIx0PIo9TCFllARShi8KsvMQGOKyhakn-SxZG_gPWTXOMPNm_wx5ZmSp5qGZjgHuAXd3Y2x755f1LGLwjTOj3xXQHfS8ClWdI9T6sUbpL3vOe9e467SHsMv782mriO0JNfVBY2acsfPan5fQrzp5y1v56Ye_2JRXheaGNSHaKqbStZhG1W2AsX3nMjchySW_m4VnT9ZMXMEIgErrjH4-SG7O1DG9j4ZW_4KaZs"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Grid -->
+<section class="py-section-gap" id="education">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg mb-12">Academic Foundations</h2>
+<div class="grid md:grid-cols-4 gap-6">
+<div class="glass-card p-6 rounded-xl hover:translate-y-[-8px] transition-all">
+<div class="text-primary font-bold text-sm mb-2">2023 - 2025</div>
+<h4 class="font-headline-md text-headline-md mb-2">MCA</h4>
+<p class="text-on-surface-variant text-sm">Master of Computer Applications</p>
+</div>
+<div class="glass-card p-6 rounded-xl hover:translate-y-[-8px] transition-all">
+<div class="text-primary font-bold text-sm mb-2">2020 - 2023</div>
+<h4 class="font-headline-md text-headline-md mb-2">B.Sc</h4>
+<p class="text-on-surface-variant text-sm">Bachelor of Science</p>
+</div>
+<div class="glass-card p-6 rounded-xl hover:translate-y-[-8px] transition-all">
+<div class="text-primary font-bold text-sm mb-2">2018 - 2020</div>
+<h4 class="font-headline-md text-headline-md mb-2">Intermediate</h4>
+<p class="text-on-surface-variant text-sm">Pre-University Education</p>
+</div>
+<div class="glass-card p-6 rounded-xl hover:translate-y-[-8px] transition-all">
+<div class="text-primary font-bold text-sm mb-2">2017 - 2018</div>
+<h4 class="font-headline-md text-headline-md mb-2">SSC</h4>
+<p class="text-on-surface-variant text-sm">Secondary School Certificate</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap relative overflow-hidden" id="contact">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid md:grid-cols-2 gap-16">
+<div class="space-y-8">
+<div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg mb-4">Get in Touch</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Looking for a frontend specialist to join your team? Let's discuss your next project.</p>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-code">EMAIL</p>
+<p class="font-bold">yadanikhil2@gmail.com</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">phone_iphone</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-code">PHONE</p>
+<p class="font-bold">9989894844</p>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<a class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-background transition-all" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-background transition-all" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+</div>
+</div>
+<form class="glass-card p-8 rounded-2xl space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-code text-on-surface-variant uppercase">Name</label>
+<input class="w-full bg-surface-dim border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface px-4 py-3 transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-code text-on-surface-variant uppercase">Email</label>
+<input class="w-full bg-surface-dim border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface px-4 py-3 transition-all" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-code text-on-surface-variant uppercase">Subject</label>
+<input class="w-full bg-surface-dim border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface px-4 py-3 transition-all" placeholder="Inquiry about..." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-code text-on-surface-variant uppercase">Message</label>
+<textarea class="w-full bg-surface-dim border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface px-4 py-3 transition-all" placeholder="Your message here..." rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-bold text-white shadow-lg hover:shadow-blue-500/30 transition-all flex justify-center items-center gap-2" type="submit">
+                            Send Message
+                            <span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background border-t border-white/5 w-full py-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-gutter gap-8">
+<div class="space-y-2 text-center md:text-left">
+<div class="font-display-lg text-headline-md font-bold text-on-surface">NIKHIL RAJ YADA</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Nikhil Raj Yada. Built for the future.</p>
+</div>
+<div class="flex gap-8 font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="mailto:yadanikhil2@gmail.com">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Sticky Navbar state
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('header');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-surface-dim/90');
+                nav.classList.remove('h-20');
+            } else {
+                nav.classList.remove('py-2', 'bg-surface-dim/90');
+                nav.classList.add('h-20');
+            }
+        });
+    </script>
+</body></html>
